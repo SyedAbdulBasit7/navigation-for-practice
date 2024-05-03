@@ -1,6 +1,6 @@
 # navigation_for_practice
 
-A new Flutter project.
+A new Flutter project for practicing GO ROUTER that is navigation 2.0
 
 ## Getting Started
 
