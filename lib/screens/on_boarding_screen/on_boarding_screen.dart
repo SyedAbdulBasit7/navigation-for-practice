@@ -10,7 +10,7 @@ import '../phone/phone_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   static const routeName = '/';
-  static const pageName = '/on-boarding';
+  static const pageName = 'on-boarding';
 
   const OnBoardingScreen({super.key});
 
@@ -88,8 +88,8 @@ class OnBoardingScreen extends StatelessWidget {
                       height: 48,
                       width: 239,
                       child: ButtonWidget(
-                        btnClick: () => context.go(
-                          BottomNavigationScreen.routeName,
+                        btnClick: () => context.goNamed(
+                          PhoneScreen.routeName,
                           extra: '0334-2064807',
                         ),
                         btnText: 'Get Started',

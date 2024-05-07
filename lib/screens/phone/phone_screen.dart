@@ -10,7 +10,7 @@ import '../bottom_navigation/bottom_navigation.dart';
 
 class PhoneScreen extends StatefulWidget {
   static const routeName = 'phone-screen';
-  static const pageName = '/$routeName';
+  static const pageName = routeName;
 
   final String? extra;
 

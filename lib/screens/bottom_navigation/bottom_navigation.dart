@@ -8,7 +8,7 @@ import '../home.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
   static const routeName = '/bottom-navigation-screen';
-  static const pageName = '/$routeName';
+  static const pageName = routeName;
 
   const BottomNavigationScreen({super.key});
 
