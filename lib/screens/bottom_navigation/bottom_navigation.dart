@@ -7,8 +7,8 @@ import '../../utils/text_theme.dart';
 import '../home.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
-  static const routeName = '/bottom-navigation-screen';
-  static const pageName = routeName;
+  static const routeName = 'bottom-navigation';
+  static const routePath = '/$routeName';
 
   const BottomNavigationScreen({super.key});
 
@@ -39,7 +39,6 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
         elevation: 0,
         backgroundColor: AppColor.onSecondary,
         selectedItemColor: AppColor.primaryLight,
-        // selectedIconTheme: ,
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: AppTextTheme.bold10(AppColor.blendColor1),
         unselectedLabelStyle: AppTextTheme.bold10(AppColor.textGray),

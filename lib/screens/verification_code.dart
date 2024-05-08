@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class VerificationScreen extends StatelessWidget {
-  static const routeName = 'verification';
-  static const pageName = '/$routeName';
+  static const routeName = 'verification-screen';
+  static const routePath = routeName;
 
   const VerificationScreen({super.key});
 

@@ -9,8 +9,8 @@ import '../bottom_navigation/bottom_navigation.dart';
 import '../phone/phone_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
-  static const routeName = '/';
-  static const pageName = 'on-boarding';
+  static const routeName = 'on-boarding';
+  static const routePath = '/';
 
   const OnBoardingScreen({super.key});
 
@@ -89,8 +89,9 @@ class OnBoardingScreen extends StatelessWidget {
                       width: 239,
                       child: ButtonWidget(
                         btnClick: () => context.goNamed(
-                          PhoneScreen.routeName,
+                          PhoneScreen.routePath,
                           extra: '0334-2064807',
+                          pathParameters: {'phoneId':'UFONE'},
                         ),
                         btnText: 'Get Started',
                         borderRadius: 10,

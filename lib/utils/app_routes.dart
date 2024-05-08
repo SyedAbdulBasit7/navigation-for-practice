@@ -7,37 +7,38 @@ import '../screens/skip.dart';
 import '../screens/verification_code.dart';
 
 final router = GoRouter(
-  initialLocation: '/',
+  initialLocation: OnBoardingScreen.routePath,
   routes: [
     GoRoute(
-      path: '/',
-      name: OnBoardingScreen.pageName,
+      path: OnBoardingScreen.routePath,
+      name: OnBoardingScreen.routeName,
       builder: (context, state) => const OnBoardingScreen(),
       routes: [
         GoRoute(
-          path: PhoneScreen.routeName,
-          name: PhoneScreen.pageName,
+          path: '${PhoneScreen.routePath}/:phoneId',
+          name: PhoneScreen.routeName,
           builder: (context, state) => PhoneScreen(
             extra: state.extra as String?,
+            phoneId: state.pathParameters['phoneId'],
           ),
           routes: [
             GoRoute(
-              path: VerificationScreen.routeName,
-              name: VerificationScreen.pageName,
+              path: VerificationScreen.routePath,
+              name: VerificationScreen.routeName,
               builder: (context, state) => const VerificationScreen(),
             ),
           ],
         ),
         GoRoute(
-          path: SkipScreen.routeName,
-          name: SkipScreen.pageName,
-          builder: (context, state) => const VerificationScreen(),
+          path: SkipScreen.routePath,
+          name: SkipScreen.routeName,
+          builder: (context, state) => const SkipScreen(),
         ),
       ],
     ),
     GoRoute(
-      path: BottomNavigationScreen.routeName,
-      name: BottomNavigationScreen.pageName,
+      path: BottomNavigationScreen.routePath,
+      name: BottomNavigationScreen.routeName,
       builder: (context, state) => const BottomNavigationScreen(),
     ),
   ],

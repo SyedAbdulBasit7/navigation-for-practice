@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:navigation_for_practice/screens/skip.dart';
 import 'package:navigation_for_practice/screens/verification_code.dart';
 import 'package:navigation_for_practice/widgets/textfield_widget.dart';
 
@@ -10,11 +11,12 @@ import '../bottom_navigation/bottom_navigation.dart';
 
 class PhoneScreen extends StatefulWidget {
   static const routeName = 'phone-screen';
-  static const pageName = routeName;
+  static const routePath = routeName;
 
   final String? extra;
+  final String? phoneId;
 
-  const PhoneScreen({super.key, this.extra});
+  const PhoneScreen({super.key, this.extra, this.phoneId});
 
   @override
   State<PhoneScreen> createState() => _PhoneScreenState();
@@ -35,7 +37,7 @@ class _PhoneScreenState extends State<PhoneScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Phone'),
+        title: Text('Phone: ${widget.phoneId}'),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -121,8 +123,7 @@ class _PhoneScreenState extends State<PhoneScreen> {
                             width: 327,
                             child: ButtonWidget(
                               btnClick: () {
-                                context.go(
-                                    '${PhoneScreen.pageName}${VerificationScreen.pageName}');
+                                context.goNamed(VerificationScreen.routePath);
                               },
                               btnText: 'Send Verification Code',
                               borderRadius: 10,
@@ -133,7 +134,7 @@ class _PhoneScreenState extends State<PhoneScreen> {
                           const SizedBox(height: 8),
                           TextButton(
                             onPressed: () =>
-                                context.go(BottomNavigationScreen.routeName),
+                                context.goNamed(SkipScreen.routePath),
                             child: Text(
                               'Skip',
                               style: AppTextTheme.bold17(AppColor.textGray),

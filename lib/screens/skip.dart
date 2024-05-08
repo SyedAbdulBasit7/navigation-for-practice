@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 class SkipScreen extends StatelessWidget {
-  static const routeName = 'skip';
-  static const pageName = '/$routeName';
+  static const routeName = 'skip-screen';
+  static const routePath = routeName;
   const SkipScreen({super.key});
 
   @override
