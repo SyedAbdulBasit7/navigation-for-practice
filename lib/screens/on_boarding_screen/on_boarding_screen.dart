@@ -91,7 +91,8 @@ class OnBoardingScreen extends StatelessWidget {
                         btnClick: () => context.goNamed(
                           PhoneScreen.routePath,
                           extra: '0334-2064807',
-                          pathParameters: {'phoneId':'UFONE'},
+                          pathParameters: {'phoneId': 'UFONE'},
+                          queryParameters: {'phoneName': 'iPhone'},
                         ),
                         btnText: 'Get Started',
                         borderRadius: 10,

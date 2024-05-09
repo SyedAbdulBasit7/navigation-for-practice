@@ -15,8 +15,9 @@ class PhoneScreen extends StatefulWidget {
 
   final String? extra;
   final String? phoneId;
+  final String? phoneName;
 
-  const PhoneScreen({super.key, this.extra, this.phoneId});
+  const PhoneScreen({super.key, this.extra, this.phoneId, this.phoneName});
 
   @override
   State<PhoneScreen> createState() => _PhoneScreenState();
