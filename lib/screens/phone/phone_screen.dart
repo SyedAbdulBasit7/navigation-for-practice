@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:navigation_for_practice/screens/skip.dart';
@@ -13,11 +15,11 @@ class PhoneScreen extends StatefulWidget {
   static const routeName = 'phone-screen';
   static const routePath = routeName;
 
-  final String? extra;
+  final Completer<bool> extra;
   final String? phoneId;
   final String? phoneName;
 
-  const PhoneScreen({super.key, this.extra, this.phoneId, this.phoneName});
+  const PhoneScreen({super.key,required this.extra, this.phoneId, this.phoneName});
 
   @override
   State<PhoneScreen> createState() => _PhoneScreenState();
@@ -30,8 +32,13 @@ class _PhoneScreenState extends State<PhoneScreen> {
 
   @override
   void initState() {
-    phoneController = TextEditingController(text: widget.extra);
+    phoneController = TextEditingController(text: '${widget.extra}');
     super.initState();
+  }
+  @override
+  void dispose() {
+    widget.extra.complete(true);
+    super.dispose();
   }
 
   @override

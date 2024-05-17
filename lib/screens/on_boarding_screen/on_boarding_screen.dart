@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:navigation_for_practice/utils/sizes.dart';
@@ -88,12 +90,20 @@ class OnBoardingScreen extends StatelessWidget {
                       height: 48,
                       width: 239,
                       child: ButtonWidget(
-                        btnClick: () => context.goNamed(
-                          PhoneScreen.routePath,
-                          extra: '0334-2064807',
-                          pathParameters: {'phoneId': 'UFONE'},
-                          queryParameters: {'phoneName': 'iPhone'},
-                        ),
+                        btnClick: () async {
+                          Completer<bool> completer = Completer<bool>();
+                          context.goNamed(
+                            PhoneScreen.routePath,
+                            extra: completer,
+                            pathParameters: {'phoneId': 'UFONE'},
+                            queryParameters: {'phoneName': 'iPhone'},
+                          );
+                          bool result = await completer.future;
+                          if (result) {
+                            // Call your API here
+                            print("API called");
+                          }
+                        },
                         btnText: 'Get Started',
                         borderRadius: 10,
                         textStyle: AppTextTheme.bold17(AppColor.onSecondary),

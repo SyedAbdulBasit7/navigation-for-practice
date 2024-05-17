@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:navigation_for_practice/screens/details.dart';
@@ -31,7 +33,7 @@ final routers = GoRouter(
           path: '${PhoneScreen.routePath}/:phoneId',
           name: PhoneScreen.routeName,
           builder: (context, state) => PhoneScreen(
-            extra: state.extra as String?,
+            extra: state.extra as Completer<bool>,
             phoneId: state.pathParameters['phoneId'],
             phoneName: state.uri.queryParameters['phoneName'],
           ),
@@ -76,7 +78,8 @@ final routers = GoRouter(
             GoRoute(
               path: DetailsScreen.routePath,
               // name: DetailsScreen.routeName,
-              builder: (context, state) => const DetailsScreen(label: 'Profile'),
+              builder: (context, state) =>
+                  const DetailsScreen(label: 'Profile'),
             ),
           ],
         ),
@@ -88,7 +91,8 @@ final routers = GoRouter(
             GoRoute(
               path: DetailsScreen.routePath,
               // name: DetailsScreen.routeName,
-              builder: (context, state) => const DetailsScreen(label: 'Settings'),
+              builder: (context, state) =>
+                  const DetailsScreen(label: 'Settings'),
             ),
           ],
         ),
